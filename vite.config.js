@@ -19,17 +19,17 @@ export default defineConfig({
         start_url: '/',
         icons: [
           {
-            src: 'pwa-64x64.png',
-            sizes: '64x64',
+            src: 'logo.jpg.png',
+            sizes: '64x64 32x32 24x24 16x16',
             type: 'image/png'
           },
           {
-            src: 'pwa-192x192.png',
+            src: 'logo.jpg.png',
             sizes: '192x192',
             type: 'image/png'
           },
           {
-            src: 'pwa-512x512.png',
+            src: 'logo.jpg.png',
             sizes: '512x512',
             type: 'image/png'
           }

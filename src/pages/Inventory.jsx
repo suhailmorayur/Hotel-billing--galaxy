@@ -47,8 +47,8 @@ const InventoryPage = () => {
     );
 
     return (
-        <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+        <div style={{ height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden', padding: '1.5rem' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem', flexShrink: 0 }}>
                 <div>
                     <h1 style={{ fontSize: '1.875rem', fontWeight: 'bold' }}>Inventory Management</h1>
                     <p style={{ color: 'var(--color-text-secondary)' }}>Manage your hotel menu and products</p>
@@ -65,7 +65,7 @@ const InventoryPage = () => {
                 </button>
             </div>
 
-            <div style={{ marginBottom: '2rem', display: 'flex', gap: '1rem' }}>
+            <div style={{ marginBottom: '2rem', display: 'flex', gap: '1rem', flexShrink: 0 }}>
                 <div style={{ position: 'relative', flex: 1, maxWidth: '400px' }}>
                     <Search size={20} style={{ position: 'absolute', left: '1rem', top: '50%', transform: 'translateY(-50%)', color: '#94a3b8' }} />
                     <input
@@ -87,9 +87,15 @@ const InventoryPage = () => {
                     <p>No items found. Add your first item to get started.</p>
                 </div>
             ) : (
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: '1.5rem' }}>
+                <div style={{
+                    display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '1.5rem',
+                    overflowY: 'auto', flex: 1, minHeight: 0, paddingBottom: '2rem', paddingRight: '0.5rem'
+                }}>
                     {filteredItems.map(item => (
-                        <div key={item.id} className="card" style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+                        <div key={item.id} className="card" style={{
+                            padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column',
+                            minHeight: '320px', backgroundColor: 'white' // Added minHeight
+                        }}>
                             <div style={{ height: '180px', backgroundColor: '#f1f5f9', position: 'relative' }}>
                                 {item.image ? (
                                     <img src={item.image} alt={item.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
@@ -105,14 +111,14 @@ const InventoryPage = () => {
                                 </span>
                             </div>
 
-                            <div style={{ padding: '1rem', flex: 1 }}>
+                            <div style={{ padding: '1rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
                                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
                                     <h3 style={{ fontWeight: 600, fontSize: '1.125rem' }}>{item.name}</h3>
                                     <span style={{ fontWeight: 700, color: 'var(--color-accent)' }}>₹{item.price.toFixed(2)}</span>
                                 </div>
                             </div>
 
-                            <div style={{ padding: '1rem', borderTop: '1px solid #f1f5f9', display: 'flex', justifyContent: 'flex-end', gap: '0.5rem' }}>
+                            <div style={{ padding: '1rem', borderTop: '1px solid #f1f5f9', display: 'flex', justifyContent: 'flex-end', gap: '0.5rem', marginTop: 'auto' }}>
                                 <button
                                     onClick={() => handleEdit(item)}
                                     style={{ padding: '0.5rem', color: 'var(--color-text-secondary)', borderRadius: 'var(--radius-md)', ':hover': { backgroundColor: '#f1f5f9' } }}

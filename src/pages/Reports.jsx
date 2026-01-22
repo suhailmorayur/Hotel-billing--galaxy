@@ -38,7 +38,7 @@ const ReportsPage = () => {
     const averageOrderValue = totalOrders > 0 ? totalSales / totalOrders : 0;
 
     return (
-        <div>
+        <div style={{ height: '100%', overflowY: 'auto', padding: '1.5rem', paddingBottom: '3rem' }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
                 <div>
                     <h1 style={{ fontSize: '1.875rem', fontWeight: 'bold' }}>Sales Reports</h1>
