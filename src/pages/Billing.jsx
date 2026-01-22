@@ -9,13 +9,16 @@ const BillingPage = () => {
     const [cart, setCart] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
-    const [lastOrder, setLastOrder] = useState(null); // For printing immediately after
+    const [lastOrder, setLastOrder] = useState(null);
+    const [selectedCategory, setSelectedCategory] = useState('All');
 
     const invoiceRef = useRef();
 
     useEffect(() => {
         setItems(StorageService.getItems());
     }, []);
+
+    const categories = ['All', 'Tea', 'Meals', 'Curry', 'Snacks', 'Breads'];
 
     const addToCart = (item) => {
         setCart(prev => {
@@ -61,9 +64,11 @@ const BillingPage = () => {
         }, 100);
     };
 
-    const filteredItems = items.filter(item =>
-        item.name.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    const filteredItems = items.filter(item => {
+        const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesCategory = selectedCategory === 'All' || item.category === selectedCategory;
+        return matchesSearch && matchesCategory;
+    });
 
     return (
         <div className="billing-container">
@@ -84,9 +89,32 @@ const BillingPage = () => {
                     />
                 </div>
 
+                <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', overflowX: 'auto', paddingBottom: '0.5rem' }}>
+                    {categories.map(cat => (
+                        <button
+                            key={cat}
+                            onClick={() => setSelectedCategory(cat)}
+                            style={{
+                                padding: '0.5rem 1.25rem',
+                                borderRadius: 'var(--radius-md)',
+                                backgroundColor: selectedCategory === cat ? 'var(--color-accent)' : 'white',
+                                color: selectedCategory === cat ? 'white' : 'var(--color-text-secondary)',
+                                border: `1px solid ${selectedCategory === cat ? 'var(--color-accent)' : '#e2e8f0'}`,
+                                whiteSpace: 'nowrap',
+                                fontWeight: 600,
+                                transition: 'all 0.2s',
+                                boxShadow: 'var(--shadow-sm)'
+                            }}
+                        >
+                            {cat}
+                        </button>
+                    ))}
+                </div>
+
                 <div style={{
-                    display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-                    gap: '1rem', overflowY: 'auto', paddingRight: '0.5rem'
+                    display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(170px, 1fr))',
+                    gap: '1rem', overflowY: 'auto', paddingRight: '0.5rem', paddingBottom: '2rem',
+                    flex: 1, minHeight: 0
                 }}>
                     {filteredItems.map(item => (
                         <div
@@ -95,21 +123,40 @@ const BillingPage = () => {
                             onClick={() => addToCart(item)}
                             style={{
                                 padding: 0, overflow: 'hidden', cursor: 'pointer',
-                                transition: 'transform 0.1s', ':active': { transform: 'scale(0.98)' }
+                                display: 'flex', flexDirection: 'column',
+                                transition: 'all 0.2s', ':active': { transform: 'scale(0.98)' },
+                                border: '1px solid #e2e8f0',
+                                height: '100%',
+                                minHeight: '220px', // Force explicit height
+                                backgroundColor: 'white'
                             }}
                         >
-                            <div style={{ height: '120px', backgroundColor: '#f1f5f9' }}>
+                            <div style={{ height: '120px', backgroundColor: '#f1f5f9', flexShrink: 0, position: 'relative' }}>
                                 {item.image ? (
                                     <img src={item.image} alt={item.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                 ) : (
                                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', color: '#cbd5e1' }}>No Image</div>
                                 )}
                             </div>
-                            <div style={{ padding: '0.75rem' }}>
-                                <h4 style={{ fontWeight: 600, marginBottom: '0.25rem' }}>{item.name}</h4>
-                                <div style={{ display: 'flex', justifyContent: 'space-between', color: '#64748b', fontSize: '0.875rem' }}>
-                                    <span>{item.category}</span>
-                                    <span style={{ fontWeight: 700, color: 'var(--color-text-primary)' }}>₹{item.price.toFixed(2)}</span>
+                            <div style={{ padding: '0.75rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                                <h4 style={{
+                                    fontWeight: 600, marginBottom: '0.5rem', fontSize: '1rem',
+                                    lineHeight: '1.2',
+                                    display: '-webkit-box',
+                                    WebkitLineClamp: 2,
+                                    WebkitBoxOrient: 'vertical',
+                                    overflow: 'hidden',
+                                    minHeight: '2.4em'
+                                }}>
+                                    {item.name}
+                                </h4>
+                                <div style={{ marginTop: 'auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid #f1f5f9', paddingTop: '0.5rem' }}>
+                                    <span style={{ fontSize: '0.75rem', color: '#64748b', backgroundColor: '#f8fafc', padding: '2px 6px', borderRadius: '4px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                                        {item.category}
+                                    </span>
+                                    <span style={{ fontWeight: 700, color: 'var(--color-accent)', fontSize: '1.1rem' }}>
+                                        ₹{item.price}
+                                    </span>
                                 </div>
                             </div>
                         </div>

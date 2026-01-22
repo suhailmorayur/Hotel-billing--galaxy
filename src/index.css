@@ -104,17 +104,19 @@ button {
 
 .main-content {
   flex: 1;
-  padding: 2rem;
   background-color: var(--color-bg-primary);
-  overflow-y: auto;
+  overflow: hidden;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .billing-container {
   display: flex;
-  height: calc(100vh - 4rem);
+  height: 100%;
   gap: 1.5rem;
   overflow: hidden;
+  padding: 1.5rem;
 }
 
 .billing-products {
@@ -131,6 +133,13 @@ button {
   flex-direction: column;
   padding: 0;
   overflow: hidden;
+}
+
+/* Wide screen adjustments */
+@media (min-width: 1200px) {
+  .billing-products {
+    flex: 3;
+  }
 }
 
 /* Mobile Responsive */
