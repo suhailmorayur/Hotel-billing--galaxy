@@ -13,8 +13,6 @@ export const StorageService = {
                 { id: '1', name: 'Porotta', price: 12, category: 'Meals', image: 'https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=400&q=80' },
                 { id: '2', name: 'Chapathi', price: 12, category: 'Meals', image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=400&q=80' },
                 { id: '3', name: 'Dosha', price: 12, category: 'Meals', image: 'https://images.unsplash.com/photo-1668236543090-d2f896b86e7c?auto=format&fit=crop&w=400&q=80' },
-                { id: '25', name: 'Masala Dosa', price: 50, category: 'Meals', image: 'https://images.unsplash.com/photo-1589301760014-d9296c97d6fb?auto=format&fit=crop&w=400&q=80' },
-                { id: '26', name: 'Ghee Roast', price: 45, category: 'Meals', image: 'https://images.unsplash.com/photo-1668236543090-d2f896b86e7c?auto=format&fit=crop&w=400&q=80' },
                 { id: '27', name: 'Idli', price: 10, category: 'Meals', image: 'https://images.unsplash.com/photo-1589948197771-33758379468f?auto=format&fit=crop&w=400&q=80' },
                 { id: '4', name: 'Vellayappam', price: 10, category: 'Meals', image: 'https://images.unsplash.com/photo-1626505705325-154df660bf2e?auto=format&fit=crop&w=400&q=80' },
                 { id: '5', name: 'Nool Puttu', price: 10, category: 'Meals', image: 'https://images.unsplash.com/photo-1626505705325-154df660bf2e?auto=format&fit=crop&w=400&q=80' },
@@ -26,10 +24,11 @@ export const StorageService = {
                 { id: '14', name: 'Chicken Biriyani (Full)', price: 100, category: 'Meals', image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=400&q=80' },
                 { id: '15', name: 'Chicken Biriyani (Half)', price: 80, category: 'Meals', image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=400&q=80' },
                 { id: '16', name: 'Meals', price: 50, category: 'Meals', image: 'https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&w=400&q=80' },
+                { id: '34', name: 'Rice (Full)', price: 50, category: 'Meals', image: 'https://images.unsplash.com/photo-1516685016129-c564f542b159?auto=format&fit=crop&w=400&q=80' },
+                { id: '35', name: 'Rice (Half)', price: 40, category: 'Meals', image: 'https://images.unsplash.com/photo-1516685016129-c564f542b159?auto=format&fit=crop&w=400&q=80' },
 
                 // Curry
                 { id: '7', name: 'Chicken Kaday', price: 70, category: 'Curry', image: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=400&q=80' },
-                { id: '28', name: 'Beef Roast', price: 120, category: 'Curry', image: 'https://images.unsplash.com/photo-1533089862017-ec32840b2a48?auto=format&fit=crop&w=400&q=80' },
                 { id: '29', name: 'Egg Curry', price: 40, category: 'Curry', image: 'https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?auto=format&fit=crop&w=400&q=80' },
                 { id: '8', name: 'Fish Curry', price: 50, category: 'Curry', image: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=400&q=80' },
                 { id: '9', name: 'Fish Fry', price: 35, category: 'Curry', image: 'https://images.unsplash.com/photo-1599307767316-65655183063f?auto=format&fit=crop&w=400&q=80' },
@@ -45,11 +44,21 @@ export const StorageService = {
 
                 // Tea
                 { id: '32', name: 'Lime Tea', price: 15, category: 'Tea', image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=400&q=80' },
+                { id: '33', name: 'Black Tea', price: 10, category: 'Tea', image: 'https://images.unsplash.com/photo-1627435601361-ec25f5b1d0e5?auto=format&fit=crop&w=400&q=80' },
                 { id: '20', name: 'Tea', price: 12, category: 'Tea', image: 'https://images.unsplash.com/photo-1544787210-282bbd471012?auto=format&fit=crop&w=400&q=80' },
                 { id: '21', name: 'Coffee', price: 15, category: 'Tea', image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80' },
                 { id: '22', name: 'Bru Coffee', price: 20, category: 'Tea', image: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=400&q=80' },
                 { id: '23', name: 'Horlicks', price: 20, category: 'Tea', image: 'https://images.unsplash.com/photo-1595981267035-23c3489fe0a2?auto=format&fit=crop&w=400&q=80' },
                 { id: '24', name: 'Boost', price: 20, category: 'Tea', image: 'https://images.unsplash.com/photo-1595981267035-23c3489fe0a2?auto=format&fit=crop&w=400&q=80' },
+
+                // Cool Drinks
+                { id: '36', name: 'Soda', price: 10, category: 'Cool Drinks', image: 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=400&q=80' },
+                { id: '37', name: 'Pepsi', price: 20, category: 'Cool Drinks', image: 'https://images.unsplash.com/photo-1629203851122-372954a43137?auto=format&fit=crop&w=400&q=80' },
+                { id: '38', name: '7up', price: 20, category: 'Cool Drinks', image: 'https://images.unsplash.com/photo-1625772299848-391b6a77d969?auto=format&fit=crop&w=400&q=80' },
+                { id: '39', name: 'Pepsi', price: 40, category: 'Cool Drinks', image: 'https://images.unsplash.com/photo-1629203851122-372954a43137?auto=format&fit=crop&w=400&q=80' },
+                { id: '40', name: '7up', price: 40, category: 'Cool Drinks', image: 'https://images.unsplash.com/photo-1625772299848-391b6a77d969?auto=format&fit=crop&w=400&q=80' },
+                { id: '41', name: 'Pepsi', price: 50, category: 'Cool Drinks', image: 'https://images.unsplash.com/photo-1629203851122-372954a43137?auto=format&fit=crop&w=400&q=80' },
+                { id: '42', name: '7up', price: 50, category: 'Cool Drinks', image: 'https://images.unsplash.com/photo-1625772299848-391b6a77d969?auto=format&fit=crop&w=400&q=80' },
             ];
             localStorage.setItem(STORAGE_KEYS.ITEMS, JSON.stringify(defaultItems));
             return defaultItems;
