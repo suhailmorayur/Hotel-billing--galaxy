@@ -7,7 +7,7 @@ const Invoice = forwardRef(({ cart, total, orderId, date, paymentMethod }, ref) 
             <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
                 <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>HOTEL GALAXY</h2>
                 <p>Fathima Building, Arimbra Road, Morayur</p>
-                <p>Ph: 8921938399</p>
+                <p>Ph: 8086764631, 9633352821</p>
             </div>
 
             <div style={{ borderBottom: '1px dashed black', paddingBottom: '0.5rem', marginBottom: '0.5rem' }}>

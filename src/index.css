@@ -232,7 +232,20 @@ button {
   .input-group,
   button,
   nav,
-  header {
+  header,
+  .card,
+  /* Hide all cards usually */
+  /* We need to be careful not to hide .print-only children if they are cards. 
+     But .print-only handles the layout itself. 
+     Actually, PostPaymentOptions is a fixed div. We should hide that specific structure.
+     Or just hide everything that is not .print-only.
+  */
+  div[style*="position: fixed"],
+  /* Hides modals generally if inline styled */
+  div[style*="background-color: rgba"]
+
+  /* Hides modal overlays */
+    {
     display: none !important;
   }
 

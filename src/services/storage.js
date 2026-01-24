@@ -19,23 +19,23 @@ export const StorageService = {
                 { id: '5', name: 'Nool Puttu', price: 10, category: 'Meals', image: '/nool puttu.jpg' },
                 { id: '6', name: 'Puttu', price: 12, category: 'Meals', image: '/puttu.jpg' },
 
-                // Meals - Rice/Biriyani
-                { id: '12', name: 'Beef Biriyani (Full)', price: 120, category: 'Meals', image: '/beef-biryani.jpg' },
-                { id: '13', name: 'Beef Biriyani (Half)', price: 80, category: 'Meals', image: '/beef-biryani.jpg' },
-                { id: '14', name: 'Chicken Biriyani (Full)', price: 100, category: 'Meals', image: '/chicken Biryani.jpg' },
-                { id: '15', name: 'Chicken Biriyani (Half)', price: 80, category: 'Meals', image: '/chicken Biryani.jpg' },
-                { id: '16', name: 'Meals', price: 50, category: 'Meals', image: '/meals.jpg' },
-                { id: '48', name: 'Meals with Fish Fry', price: 85, category: 'Meals', image: '/fish fry.jpg' },
-                { id: '34', name: 'Rice (Full)', price: 50, category: 'Meals', image: '/biriyani rice.jpg' },
-                { id: '35', name: 'Rice (Half)', price: 40, category: 'Meals', image: '/biriyani rice.jpg' },
+                // Rice Items
+                { id: '12', name: 'Beef Biriyani (Full)', price: 120, category: 'Rice', image: '/beef-biryani.jpg' },
+                { id: '13', name: 'Beef Biriyani (Half)', price: 80, category: 'Rice', image: '/beef-biryani.jpg' },
+                { id: '14', name: 'Chicken Biriyani (Full)', price: 100, category: 'Rice', image: '/chicken Biryani.jpg' },
+                { id: '15', name: 'Chicken Biriyani (Half)', price: 80, category: 'Rice', image: '/chicken Biryani.jpg' },
+                { id: '16', name: 'Meals', price: 50, category: 'Rice', image: '/meals.jpg' },
+                { id: '48', name: 'Meals with Fish Fry', price: 85, category: 'Rice', image: '/fish fry.jpg' },
+                { id: '34', name: 'Rice (Full)', price: 50, category: 'Rice', image: '/biriyani rice.jpg' },
+                { id: '35', name: 'Rice (Half)', price: 40, category: 'Rice', image: '/biriyani rice.jpg' },
 
                 // Curry
-                { id: '7', name: 'Chicken Kaday', price: 70, category: 'Curry', image: '/chiken kaday.jpg' },
+                { id: '7', name: 'Chicken Kadai', price: 70, category: 'Curry', image: '/chiken kaday.jpg' },
                 { id: '44', name: 'Green Peas', price: 30, category: 'Curry', image: '/greenpeas.jpg' },
                 { id: '45', name: 'Cherupayar Curry', price: 30, category: 'Curry', image: '/cherupayar curry.jpg' },
                 { id: '46', name: 'Kadala Curry', price: 30, category: 'Curry', image: '/kadala curry.jpg' },
                 { id: '47', name: 'Baaji Curry', price: 30, category: 'Curry', image: '/baaji curry.jpg' },
-                { id: '29', name: 'Egg Curry', price: 40, category: 'Curry', image: '/egg curry.jpg' },
+                { id: '29', name: 'Egg Curry', price: 30, category: 'Curry', image: '/egg curry.jpg' },
                 { id: '8', name: 'Fish Curry', price: 50, category: 'Curry', image: '/Fish-Curry-.jpg' },
                 { id: '9', name: 'Fish Fry', price: 40, category: 'Curry', image: '/fish fry.jpg' },
                 { id: '10', name: 'Beef Fry (Full)', price: 110, category: 'Curry', image: '/beef fry.jpg' },
@@ -43,10 +43,18 @@ export const StorageService = {
 
                 // Snacks
                 { id: '17', name: 'Pazhampori', price: 12, category: 'Snacks', image: '/pazhampori.jpg' },
-                { id: '30', name: 'Cutlet', price: 15, category: 'Snacks', image: '/cutlet.jpg' },
+                { id: '30', name: 'Cutlet', price: 12, category: 'Snacks', image: '/cutlet.jpg' },
                 { id: '31', name: 'Vada', price: 10, category: 'Snacks', image: '/vada.jpg' },
                 { id: '18', name: 'Samoosa', price: 12, category: 'Snacks', image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=400&q=80' },
                 { id: '19', name: 'Ullivada', price: 12, category: 'Snacks', image: '/ullivada.jpg' },
+                { id: '49', name: 'Vettu Cake', price: 12, category: 'Snacks', image: '/vett cake.jpg' },
+                { id: '50', name: 'Paal Cake', price: 12, category: 'Snacks', image: '/paal cake.jpg' },
+                { id: '51', name: 'Sugiyan', price: 12, category: 'Snacks', image: '/sugiyan.jpg' },
+                { id: '52', name: 'Neyyappam', price: 12, category: 'Snacks', image: '/neyyappam.jpg' },
+                { id: '53', name: 'Ela Ada', price: 12, category: 'Snacks', image: '/ela Ada.jpg' },
+                { id: '54', name: 'Masala Bonda', price: 12, category: 'Snacks', image: '/masala bonda.jpg' },
+                { id: '55', name: 'Mutta Bajji', price: 12, category: 'Snacks', image: '/mutta bajji.jpg' },
+                { id: '56', name: 'Boiled Egg', price: 10, category: 'Snacks', image: '/boiled egg.jpg' },
 
                 // Tea
                 { id: '32', name: 'Lime Tea', price: 15, category: 'Tea', image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=400&q=80' },

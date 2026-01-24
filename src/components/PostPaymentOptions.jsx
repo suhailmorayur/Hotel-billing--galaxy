@@ -28,7 +28,7 @@ const PostPaymentOptions = ({ onClose, onPrint, onSave, orderTotal }) => {
                         onClick={onPrint}
                         style={{
                             padding: '1rem', borderRadius: 'var(--radius-md)',
-                            backgroundColor: 'var(--color-primary)', color: 'white', fontWeight: 'bold',
+                            backgroundColor: 'var(--color-accent)', color: 'white', fontWeight: 'bold',
                             display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
                             border: 'none', cursor: 'pointer', fontSize: '1rem'
                         }}
@@ -40,8 +40,8 @@ const PostPaymentOptions = ({ onClose, onPrint, onSave, orderTotal }) => {
                         onClick={onSave}
                         style={{
                             padding: '1rem', borderRadius: 'var(--radius-md)',
-                            backgroundColor: 'white', color: 'var(--color-primary)',
-                            border: '2px solid var(--color-primary)',
+                            backgroundColor: 'white', color: 'var(--color-accent)',
+                            border: '2px solid var(--color-accent)',
                             fontWeight: 'bold', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem',
                             cursor: 'pointer', fontSize: '1rem'
                         }}
