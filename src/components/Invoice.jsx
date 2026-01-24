@@ -20,8 +20,8 @@ const Invoice = forwardRef(({ cart, total, orderId, date, paymentMethod }, ref) 
                 <thead>
                     <tr style={{ borderBottom: '1px solid black' }}>
                         <th style={{ textAlign: 'left', padding: '0.25rem 0' }}>Item</th>
-                        <th style={{ textAlign: 'right', padding: '0.25rem 0' }}>Qty</th>
-                        <th style={{ textAlign: 'right', padding: '0.25rem 0' }}>Amt</th>
+                        <th style={{ textAlign: 'right', padding: '0.25rem 0', width: '40px' }}>Qty</th> {/* Added width */}
+                        <th style={{ textAlign: 'right', padding: '0.25rem 0', minWidth: '60px' }}>Amt</th> {/* Added minWidth */}
                     </tr>
                 </thead>
                 <tbody>

@@ -2,13 +2,16 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Search, ShoppingCart, Plus, Minus, Trash2 } from 'lucide-react';
 import { StorageService } from '../services/storage';
 import PaymentModal from '../components/PaymentModal';
+import PostPaymentOptions from '../components/PostPaymentOptions';
 import Invoice from '../components/Invoice';
+import html2canvas from 'html2canvas';
 
 const BillingPage = () => {
     const [items, setItems] = useState([]);
     const [cart, setCart] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [isPaymentModalOpen, setIsPaymentModalOpen] = useState(false);
+    const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
     const [lastOrder, setLastOrder] = useState(null);
     const [selectedCategory, setSelectedCategory] = useState('All');
 
@@ -51,17 +54,67 @@ const BillingPage = () => {
             items: cart,
             total: cartTotal,
             paymentMethod: method,
+            timestamp: new Date().toISOString(),
+            id: Date.now().toString().slice(-6)
         };
         const savedOrder = StorageService.saveOrder(order);
         setLastOrder(savedOrder);
         setIsPaymentModalOpen(false);
+        setIsSuccessModalOpen(true);
+        setCart([]);
+    };
 
-        // Trigger print
-        setTimeout(() => {
-            window.print();
-            // Clear cart after print dialog closes (or ideally, we just clear it now)
-            setCart([]);
-        }, 100);
+    const handlePrint = () => {
+        window.print();
+    };
+
+    const handleSaveImage = async () => {
+        if (invoiceRef.current) {
+            try {
+                const element = invoiceRef.current;
+                const parent = element.parentElement; // This is .print-only
+
+                // Store original styles
+                const originalDisplay = parent.style.display;
+                const originalPosition = parent.style.position;
+                const originalTop = parent.style.top;
+                const originalLeft = parent.style.left;
+                const originalZIndex = parent.style.zIndex;
+
+                // Temporarily reveal it off-screen
+                parent.style.display = 'block';
+                parent.style.position = 'fixed';
+                parent.style.top = '0'; // Must be in viewport for some canvas engines
+                parent.style.left = '0';
+                parent.style.zIndex = '-9999'; // Behind everything
+                parent.style.backgroundColor = 'white';
+
+                // Allow a brief moment for render
+                await new Promise(resolve => setTimeout(resolve, 100));
+
+                const canvas = await html2canvas(element, {
+                    scale: 2,
+                    backgroundColor: '#ffffff'
+                });
+
+                const image = canvas.toDataURL("image/png");
+                const link = document.createElement("a");
+                link.href = image;
+                link.download = `invoice-${lastOrder?.id || 'bill'}.png`;
+                link.click();
+
+                // Restore styles
+                parent.style.display = originalDisplay;
+                parent.style.position = originalPosition;
+                parent.style.top = originalTop;
+                parent.style.left = originalLeft;
+                parent.style.zIndex = originalZIndex;
+
+            } catch (error) {
+                console.error("Error saving image:", error);
+                alert("Failed to save image. Please use Print -> Save as PDF instead.");
+            }
+        }
     };
 
     const filteredItems = items.filter(item => {
@@ -228,6 +281,15 @@ const BillingPage = () => {
                     total={cartTotal}
                     onClose={() => setIsPaymentModalOpen(false)}
                     onConfirm={handlePaymentConfirm}
+                />
+            )}
+
+            {isSuccessModalOpen && lastOrder && (
+                <PostPaymentOptions
+                    onClose={() => setIsSuccessModalOpen(false)}
+                    onPrint={handlePrint}
+                    onSave={handleSaveImage}
+                    orderTotal={lastOrder.total}
                 />
             )}
 
