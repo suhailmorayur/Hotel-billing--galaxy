@@ -92,8 +92,12 @@ const ItemForm = ({ item, onSave, onCancel }) => {
                             <option value="">Select Category</option>
                             <option value="Food">Food</option>
                             <option value="Beverage">Beverage</option>
-                            <option value="Dessert">Dessert</option>
-                            <option value="Other">Other</option>
+                            <option value="Lunch">Lunch</option>
+                            <option value="Curry">Curry</option>
+                            <option value="Snacks">Snacks</option>
+                            <option value="Tea">Tea</option>
+                            <option value="Cool Drinks">Cool Drinks</option>
+
                         </select>
                     </div>
 

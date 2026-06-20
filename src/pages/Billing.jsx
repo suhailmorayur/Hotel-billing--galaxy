@@ -21,7 +21,7 @@ const BillingPage = () => {
         setItems(StorageService.getItems());
     }, []);
 
-    const categories = ['All', 'Tea', 'Rice', 'Meals', 'Curry', 'Snacks', 'Cool Drinks'];
+    const categories = ['All', 'Tea', 'Breakfast', 'Lunch', 'Curry', 'Snacks', 'Cool Drinks'];
 
     const addToCart = (item) => {
         setCart(prev => {
